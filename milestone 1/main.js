@@ -32,28 +32,20 @@ const app = new Vue({
     },
 
     methods: {
-        searchMovies(){
-            let first = this.search.toLowerCase();
-            console.log(first)
-            this.moviesData.forEach(element => {
-                let movies = element.original_title.toLowerCase();
-                console.log(movies)
-                if(movies.includes(first)){
-                    movies.video = true;
-                    
-                }
-            })
-        }
 
     },
 
     mounted(){
-        const fullUrl = `${this.url}`;
+        // const fullUrl = `${this.url}`;
         axios
-        .get(fullUrl)
+        .get(this.url)
         .then(resp =>{
             console.log(resp.data.results)
             this.moviesData = resp.data.results
         })
+
+
+
+
     }
 })
