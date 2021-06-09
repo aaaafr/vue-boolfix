@@ -5,13 +5,77 @@
 }
 
 .container {
-    width: 80%;
-    margin: auto
+    width: 100%;
+    margin: auto;
 }
 
 
+.site_header {
+    background-color: black;
+    padding:10px
+}
+
+.site_header h1{
+    font-family: 'Bebas Neue', cursive;
+    color: red;
+    font-size:  50px
+}
 .nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px
 }
+
+.search, .searchTv{
+    display: flex;;
+    align-items: center;
+}
+
+.search input, .searchTv input{
+    border-style:none;
+    border-color: gray;
+    background-color: black;
+    color:gray;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 80%;
+}
+
+.search button, .searchTv button {
+    background-color: black;
+    border-style: none;
+}
+
+.search i, .searchTv i {
+    color: red;
+    font-size:25px;
+    padding:10px
+}
+
+
+.colonne {
+    display:flex;
+    justify-content: space-around;
+}
+
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    margin: 10px;
+    background-color: #2E3A46;
+    width: 200px;
+}
+
+

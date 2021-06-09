@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <title>Boolfix</title>
 </head>
 <body>
     <div id="app">
         <div class="container">
-            <main class="site_main">
+            <header class="site_header">
                 <div class="nav">
-                    <h1>BOOLFIX</h1>
+                    <h1>NETFLIX</h1>
                     <div class="search">
                         <input type="search" placeholder="search movies" v-model="search">
                         <button @click="searchMovies"><i class="fas fa-search"></i></button>
@@ -23,31 +25,36 @@
                         <button @click="searchTvShows"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
-                <div class="film">
-                    <h1>Film</h1>
-                    <ul>
-                        <li v-for="movies in moviesData">
-                            <img :src="'https://image.tmdb.org/t/p/w200/' + movies.poster_path">
-                            {{movies.title}}
-                            {{movies.original_title}}
-                            {{movies.vote_average}}  
-                            <img :src="'https://www.unknown.nu/flags/images/' + movies.original_language + '-100'">
-                        </li>
-                    </ul>
-                </div>
-                <div class="series">
-                    <h1>Tv SHOWS</h1>
-                    <ul>
-                        <li v-for="series in tvData">
-                            <img :src="'https://image.tmdb.org/t/p/w200/' + series.poster_path" >
-                            {{series.name}}
-                            {{series.original_name}}
-                            {{series.vote_average}}
-                            <img :src="'https://www.unknown.nu/flags/images/' + series.original_language + '-100'">
-                        </li>
-                    </ul>
-                </div>
-    
+            </header>
+            <main class="site_main">
+                <div class="colonne">
+                    <div class="film">
+                        <h1>Film</h1>
+                        <ul class="card">
+                            <li class="column" v-for="movies in moviesData">
+                                <img :src="'https://image.tmdb.org/t/p/w200/' + movies.poster_path">
+                                {{movies.title}}
+                                {{movies.original_title}}
+                                <span v-for="n in Math.ceil(movies.vote_average % 2)"><i class="fas fa-star"></i></span>
+                                <span v-for="n in (5 - Math.ceil(movies.vote_average % 2))"><i class="far fa-star"></i></span>
+                                <img :src="'https://www.unknown.nu/flags/images/' + movies.original_language + '-100'">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="series">
+                        <h1>Tv SHOWS</h1>
+                        <ul class="card">
+                            <li class="column" v-for="series in tvData">
+                                <img :src="'https://image.tmdb.org/t/p/w200/' + series.poster_path" >
+                                {{series.name}}
+                                {{series.original_name}}
+                                <span v-for="n in Math.ceil(series.vote_average % 2)"><i class="fas fa-star"></i></span>
+                                <span v-for="n in (5 - Math.ceil(series.vote_average % 2))"><i class="far fa-star"></i></span>
+                                <img :src="'https://www.unknown.nu/flags/images/' + series.original_language + '-100'">
+                            </li>
+                        </ul>
+                    </div> 
+                </div>   
             </main>
         </div>
 

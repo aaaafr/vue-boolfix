@@ -10,7 +10,6 @@ const app = new Vue({
         tvData:"",
         search: "",
         searchTv: "",
-        voto : Math.round(Math.random()*5),
     },
 
     methods: {
@@ -41,6 +40,8 @@ const app = new Vue({
             })
 
         },
+
+    
 
         
     },
