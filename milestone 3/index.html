@@ -27,7 +27,7 @@
                     <h1>Film</h1>
                     <ul>
                         <li v-for="movies in moviesData">
-                            <img :src="'https://image.tmdb.org/t/p/w200/' + movies.poster_path" >
+                            <img :src="'https://image.tmdb.org/t/p/w200/' + movies.poster_path">
                             {{movies.title}}
                             {{movies.original_title}}
                             {{movies.vote_average}}  
@@ -39,6 +39,7 @@
                     <h1>Tv SHOWS</h1>
                     <ul>
                         <li v-for="series in tvData">
+                            <img :src="'https://image.tmdb.org/t/p/w200/' + series.poster_path" >
                             {{series.name}}
                             {{series.original_name}}
                             {{series.vote_average}}
