@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="crossorigin="anonymous" />
+    <title>Boolfix</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <main class="site_main">
+                <div class="nav">
+                    <h1>BOOLFIX</h1>
+                    <div class="search">
+                        <input type="search" placeholder="search movies" v-model="search">
+                        <button @click="searchMovies"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="searchTv">
+                        <input type="search" placeholder="search tv shows" v-model="searchTv">
+                        <button @click="searchTvShows"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="film">
+                    <h1>Film</h1>
+                    <ul>
+                        <li v-for="movies in moviesData">
+                            <img :src="'https://image.tmdb.org/t/p/w200/' + movies.poster_path" >
+                            {{movies.title}}
+                            {{movies.original_title}}
+                            {{movies.vote_average}}  
+                            <img :src="'https://www.unknown.nu/flags/images/' + movies.original_language + '-100'">
+                        </li>
+                    </ul>
+                </div>
+                <div class="series">
+                    <h1>Tv SHOWS</h1>
+                    <ul>
+                        <li v-for="series in tvData">
+                            {{series.name}}
+                            {{series.original_name}}
+                            {{series.vote_average}}
+                            <img :src="'https://www.unknown.nu/flags/images/' + series.original_language + '-100'">
+                        </li>
+                    </ul>
+                </div>
+    
+            </main>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
