@@ -18,17 +18,32 @@
                         <input type="search" placeholder="search movies" v-model="search">
                         <button @click="searchMovies"><i class="fas fa-search"></i></button>
                     </div>
+                    <div class="searchTv">
+                        <input type="search" placeholder="search tv shows" v-model="searchTv">
+                        <button @click="searchTvShows"><i class="fas fa-search"></i></button>
+                    </div>
                 </div>
                 <div class="film">
+                    <h1>Film</h1>
                     <ul>
                         <li  v-for="movies in moviesData">
                             {{movies.title}}
                             {{movies.original_title}}
-                            {{movies.original_language}}
-                            {{movies.vote_average}}            
+                            {{movies.vote_average}}  
+                            <img :src="'https://www.unknown.nu/flags/images/' + movies.original_language + '-100'">
                         </li>
                     </ul>
-    
+                </div>
+                <div class="series">
+                    <h1>Tv SHOWS</h1>
+                    <ul>
+                        <li v-for="series in tvData">
+                            {{series.name}}
+                            {{series.original_name}}
+                            {{series.vote_average}}
+                            <img :src="'https://www.unknown.nu/flags/images/' + series.original_language + '-100'">
+                        </li>
+                    </ul>
                 </div>
     
             </main>
