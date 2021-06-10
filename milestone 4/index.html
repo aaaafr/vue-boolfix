@@ -33,12 +33,23 @@
                         <ul class="card">
                             <li class="column" v-for="movies in moviesData">
                                 <div class="overview hidden">
-                                    {{movies.overview}}
-                                    <p>{{movies.title}}</p>
+                                    <p>Cast:</p>
+                                    <div class="cast"  v-for="cast in castData">
+                                        <ul v-for="cast.name"v-if="cast.known_for_department === 'Acting'">
+                                            <li>{{cast.name}}</li>
+                                        </ul>
+                                        
+                                    </div>
+                                    <div class="descrizione">
+                                        Overview: {{movies.overview}}
+
+                                    </div>
+                                    <p>Titolo: {{movies.title}}</p>
                                     <div v-if="movies.original_title != movies.title">
-                                       <p> {{movies.original_title}}</p>
+                                       <p> Titolo originale: {{movies.original_title}}</p>
                                     </div>
                                     <div class="star">
+                                        voto:
                                         <span v-for="n in Math.ceil(movies.vote_average % 2)"><i id="piena" class="fas fa-star"></i></span>
                                         <span v-for="n in (5 - Math.ceil(movies.vote_average % 2))"><i id="vuota" class="far fa-star"></i></span>
                                     </div>
@@ -64,8 +75,8 @@
                                         <p>{{series.original_name}}</p>
                                     </div>
                                     <div class="star">
-                                        <span v-for="n in Math.ceil(series.vote_average % 2)"><i class="fas fa-star"></i></span>
-                                        <span v-for="n in (5 - Math.ceil(series.vote_average % 2))"><i class="far fa-star"></i></span>
+                                        <span v-for="n in Math.ceil(series.vote_average % 2)"><i id="piena" class="fas fa-star"></i></span>
+                                        <span v-for="n in (5 - Math.ceil(series.vote_average % 2))"><i id="vuota" class="far fa-star"></i></span>
                                     </div>
                                     <img id="flags" :src="'https://www.unknown.nu/flags/images/' + series.original_language + '-100'">
                                 </div>

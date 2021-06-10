@@ -87,7 +87,6 @@ body {
 
 .column:hover {
     cursor: pointer;
-
 }
 .column:hover .overview{
     visibility: visible;
@@ -118,6 +117,11 @@ height:100%;
     filter: brightness(0.5);
 }
 
+
+
+.descrizione {
+    padding: 10px;
+}
 
 .star {
     display: flex;
