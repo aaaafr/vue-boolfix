@@ -54,17 +54,17 @@
                             <li class="column" v-for="series in tvData">
                                 <div v-if="series.overview != '' " class="overview hidden">
                                     {{series.overview}}
+                                    <p>{{series.name}}</p>
+                                    <div v-if="series.name != series.original_name">
+                                        <p>{{series.original_name}}</p>
+                                    </div>
+                                    <div class="star">
+                                        <span v-for="n in Math.ceil(series.vote_average % 2)"><i class="fas fa-star"></i></span>
+                                        <span v-for="n in (5 - Math.ceil(series.vote_average % 2))"><i class="far fa-star"></i></span>
+                                    </div>
+                                    <img id="flags" :src="'https://www.unknown.nu/flags/images/' + series.original_language + '-100'">
                                 </div>
-                                <img id="poster" :src="'https://image.tmdb.org/t/p/w200/' + series.poster_path" >
-                                <p>{{series.name}}</p>
-                                <div v-if="series.name != series.original_name">
-                                    <p>{{series.original_name}}</p>
-                                </div>
-                                <div class="star">
-                                    <span v-for="n in Math.ceil(series.vote_average % 2)"><i class="fas fa-star"></i></span>
-                                    <span v-for="n in (5 - Math.ceil(series.vote_average % 2))"><i class="far fa-star"></i></span>
-                                </div>
-                                <img id="flags" :src="'https://www.unknown.nu/flags/images/' + series.original_language + '-100'">
+                                <img id="poster" :src="'https://image.tmdb.org/t/p/w342/' + series.poster_path" >
                             </li>
                         </ul>
                     </div> 
