@@ -39,12 +39,17 @@
                                        <p> {{movies.original_title}}</p>
                                     </div>
                                     <div class="star">
-                                        <span v-for="n in Math.ceil(movies.vote_average % 2)"><i class="fas fa-star"></i></span>
-                                        <span v-for="n in (5 - Math.ceil(movies.vote_average % 2))"><i class="far fa-star"></i></span>
+                                        <span v-for="n in Math.ceil(movies.vote_average % 2)"><i id="piena" class="fas fa-star"></i></span>
+                                        <span v-for="n in (5 - Math.ceil(movies.vote_average % 2))"><i id="vuota" class="far fa-star"></i></span>
                                     </div>
                                     <img id="flags" :src="'https://www.unknown.nu/flags/images/' + movies.original_language + '-100'">
                                 </div>
-                                <img id="poster" :src="'https://image.tmdb.org/t/p/w342/' + movies.poster_path">
+                                <div class="image"  v-if="movies.poster_path != null ">
+                                    <img id="poster" :src="'https://image.tmdb.org/t/p/w342/' + movies.poster_path">
+                                </div>
+                                <div class="not_image" v-else="movies.poster_path = null ">
+                                    
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -64,7 +69,12 @@
                                     </div>
                                     <img id="flags" :src="'https://www.unknown.nu/flags/images/' + series.original_language + '-100'">
                                 </div>
-                                <img id="poster" :src="'https://image.tmdb.org/t/p/w342/' + series.poster_path" >
+                                <div class="image" v-if="series.poster_path != null ">
+                                    <img id="poster" :src="'https://image.tmdb.org/t/p/w342/' + series.poster_path" >
+                                </div>
+                                <div class="not_image" v-else="series.poster_path = null ">
+                                    
+                                </div>
                             </li>
                         </ul>
                     </div> 
