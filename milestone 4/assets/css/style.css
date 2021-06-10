@@ -67,16 +67,11 @@ body {
 }
 
 
-.colonne {
-    display:flex;
-    justify-content: space-around;
-
-}
-
 
 .card {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow: scroll;
     
 }
 
@@ -139,9 +134,6 @@ p{
     padding:10px;
 }
 
-#poster {
-    width: 100%;
-}
 
 #piena, #vuota {
     color:rgb(255, 230, 0);
