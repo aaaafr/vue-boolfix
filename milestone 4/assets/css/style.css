@@ -143,4 +143,7 @@ p{
     width: 100%;
 }
 
+#piena, #vuota {
+    color:rgb(255, 230, 0);
+}
 
