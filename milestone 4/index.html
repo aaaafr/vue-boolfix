@@ -21,7 +21,7 @@
                         <button @click="searchMovies"><i class="fas fa-search"></i></button>
                     </div>
                     <div class="searchTv">
-                        <input type="search" placeholder="search tv shows"@keyup.enter="searchTvShows" v-model="searchTv">
+                        <input type="search" placeholder="search tv shows" @keyup.enter="searchTvShows" v-model="searchTv">
                         <button @click="searchTvShows"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
@@ -32,7 +32,10 @@
                         <h1>Film</h1>
                         <ul class="card">
                             <li class="column" v-for="movies in moviesData">
-                                <img  :src="'https://image.tmdb.org/t/p/w200/' + movies.poster_path">
+                                <div v-if="movies.overview != '' " class="overview hidden">
+                                    {{movies.overview}}
+                                </div>
+                                <img id="poster" :src="'https://image.tmdb.org/t/p/w200/' + movies.poster_path">
                                 <p>{{movies.title}}</p>
                                 <div v-if="movies.original_title != movies.title">
                                    <p> {{movies.original_title}}</p>
@@ -49,7 +52,10 @@
                         <h1>Tv SHOWS</h1>
                         <ul class="card">
                             <li class="column" v-for="series in tvData">
-                                <img :src="'https://image.tmdb.org/t/p/w200/' + series.poster_path" >
+                                <div v-if="series.overview != '' " class="overview hidden">
+                                    {{series.overview}}
+                                </div>
+                                <img id="poster" :src="'https://image.tmdb.org/t/p/w200/' + series.poster_path" >
                                 <p>{{series.name}}</p>
                                 <div v-if="series.name != series.original_name">
                                     <p>{{series.original_name}}</p>

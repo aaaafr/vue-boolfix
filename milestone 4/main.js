@@ -28,7 +28,7 @@ const app = new Vue({
         },
 
         searchTvShows(){
-            let query = this.search
+            let query = this.searchTv
             if(query === ""){
                 query = "back+to"
             }
